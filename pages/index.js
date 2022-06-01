@@ -9,7 +9,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const data = [
+const themes = [
   {
     title: "content1",
     theme: {
@@ -120,6 +120,7 @@ export default function Home() {
 
           <section className="w-full min-h-[65vh] md:min-h-screen h-full relative overflow-hidden  ">
 
+
             <Image
               data-aos="zoom-out-up"
               src="/assets/home/wepik--202251-105525.jpg"
@@ -135,13 +136,14 @@ export default function Home() {
             <div className="w-full h-full max-w-7xl  p-4 md:p-10 flex items-center absolute">
               <div className="grid grid-cols-1 w-full h-full">
                 <div className="grid grid-cols-1 md:grid-cols-2  h-full md:h-[85vh]">
-                  <div className="h-full flex justify-center items-center">
+                  <div className=" h-full flex justify-center items-center">
                     <div
                       data-aos="fade-zoom-in"
                       data-aos-easing="ease-in-back"
                       data-aos-delay="200"
-                      className="text-center text-[#7b7c80]">
+                      className="text-center text-[#7b7c80] grid justify-items-center">
                       <h1 className="font-bold  text-3xl md:text-4xl font-serif text-[#82603f] mb-5">A SENSE OF <br />BELONGING</h1>
+                      <hr className="w-28 mb-5" style={{ borderTop: "2px solid #82603f " }} />
                       <p className="text-sm max-w-md w-full font-light">Sit back and relax. <span className="text-[#82603f] font-medium">BAAN SINDHORN</span> offers close family bond in an ultimate lifestyle. The luxury makes striking feeling of a sumptuous yet cozy flair every family has always promised themselves.</p>
                     </div>
                   </div>
@@ -161,15 +163,15 @@ export default function Home() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2  h-full md:h-[85vh]">
-
                   <div
                     data-aos="fade-zoom-in"
                     data-aos-easing="ease-in-back"
                     data-aos-delay="350"
                     className="h-full flex justify-center items-center md:col-start-2">
-                    <div className="text-center text-[#7b7c80]">
+                    <div className="text-center text-[#7b7c80] grid justify-items-center">
                       <h1 className="font-bold text-3xl md:text-4xl font-serif text-[#82603f] mb-5 max-w-md w-full">REFLECTING
                         AN APPRECIATION OF FAMILY BOND</h1>
+                      <hr className="w-28 mb-5" style={{ borderTop: "2px solid #82603f " }} />
                       <p className="text-sm max-w-md w-full font-light">Simple but elegant,
                         every corner is designed to be both a place for you to relax with family and sophisticated functional part of working life, while also allowing privacy when desired. BAAN SINDHORN represents an eternal family bond as much as it embodies luxury living.</p>
                     </div>
@@ -184,7 +186,7 @@ export default function Home() {
                           alt="home-2-2"
                           layout="fill"
                           objectFit="cover"
-                          className="grayscale hover:scale-105 duration-500 " />
+                          className="grayscale hover:scale-105 duration-500 shadow-2xl  " />
                       </div>
                     </div>
                   </div>
@@ -199,10 +201,10 @@ export default function Home() {
 
 
 
-          {data.map((item, index) => (
+          {themes.map((item, index) => (
             <div key={index} ref={(e) => (GroupRef.current[index] = e)} data-bgcolor={item.theme.background} className="w-full h-full">
               <section id="content2" className={classNames(
-                item.title == "content2" ? "w-full min-h-screen h-full   flex flex-col items-center -translate-y-10  " : "hidden opacity-0")}>
+                item.title == "content2" ? "w-full min-h-screen h-full flex flex-col items-center -translate-y-10  " : "hidden opacity-0")}>
 
                 <div className="w-full h-full max-w-7xl  p-4 md:p-10  mb-10">
                   <div
