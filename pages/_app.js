@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
 
@@ -14,12 +16,12 @@ function MyApp({ Component, pageProps }) {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // useEffect(() => {
-  //   AOS.init({
-  //     once: true,
-  //     duration: 1400,
-  //   });
-  // }, []);
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1400,
+    });
+  }, []);
 
   return (
     <>

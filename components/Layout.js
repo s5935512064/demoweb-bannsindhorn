@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
 
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
                 {children}
 
             </motion.main>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 };
