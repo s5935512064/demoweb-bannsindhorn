@@ -35,6 +35,7 @@ export default function Home() {
     const content = document.querySelector("#content2");
 
     const styles = GroupRef.current.map((item, index) => {
+
       const rect = item.getBoundingClientRect();
 
       return { item, rect };
@@ -44,13 +45,10 @@ export default function Home() {
     document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
   }
 
-
   useEffect(() => {
+
     window.addEventListener('scroll', onScroll)
   }, [])
-
-
-
 
   return (
     <AnimatePresence>
@@ -88,7 +86,7 @@ export default function Home() {
                 initial={{ y: "200%", transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85, } }}
                 animate={{
                   y: 0,
-                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 2, delay: 0.5 }
+                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1 }
                 }}
 
                 className="w-full h-full flex justify-center items-center"
@@ -123,8 +121,8 @@ export default function Home() {
 
             <Image
               data-aos="zoom-out-up"
-              src="/assets/home/wepik--202251-105525.jpg"
-              alt="home-1"
+              src="/assets/home/home-1-1.jpg"
+              alt="home-1-"
               layout="fill"
               objectFit="cover"
               className="grayscale " />
@@ -166,14 +164,14 @@ export default function Home() {
                   <div
                     data-aos="fade-zoom-in"
                     data-aos-easing="ease-in-back"
-                    data-aos-delay="350"
+                    data-aos-delay="200"
                     className="h-full flex justify-center items-center md:col-start-2">
                     <div className="text-center text-[#7b7c80] grid justify-items-center">
                       <h1 className="font-bold text-3xl md:text-4xl font-serif text-[#82603f] mb-5 max-w-md w-full">REFLECTING
                         AN APPRECIATION OF FAMILY BOND</h1>
                       <hr className="w-28 mb-5" style={{ borderTop: "2px solid #82603f " }} />
                       <p className="text-sm max-w-md w-full font-light">Simple but elegant,
-                        every corner is designed to be both a place for you to relax with family and sophisticated functional part of working life, while also allowing privacy when desired. BAAN SINDHORN represents an eternal family bond as much as it embodies luxury living.</p>
+                        every corner is designed to be both a place for you to relax with family and sophisticated functional part of working life, while also allowing privacy when desired. <span className="text-[#82603f] font-medium">BAAN SINDHORN</span> represents an eternal family bond as much as it embodies luxury living.</p>
                     </div>
                   </div>
 

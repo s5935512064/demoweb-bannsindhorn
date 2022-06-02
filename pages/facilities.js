@@ -114,7 +114,7 @@ const Facilities = () => {
                             <div
                                 data-aos="fade-zoom-in"
                                 data-aos-easing="ease-in-back"
-                                data-aos-delay="350"
+                                data-aos-delay="200"
                                 className="h-full flex justify-center items-center px-4 md:px-10">
                                 <div className="text-center text-[#7b7c80] grid justify-items-center">
                                     <h1 className="font-bold text-3xl md:text-4xl font-serif text-[#82603f] mb-5 max-w-md w-full">REFLECTING
@@ -170,7 +170,7 @@ const Facilities = () => {
                             <div
                                 data-aos="fade-zoom-in"
                                 data-aos-easing="ease-in-back"
-                                data-aos-delay="350"
+                                data-aos-delay="200"
                                 className="h-full flex justify-center items-center px-4 md:px-10">
                                 <div className="text-center text-[#7b7c80] grid justify-items-center">
                                     <p className="font-serif italic">Fitness Room</p>
@@ -193,9 +193,6 @@ const Facilities = () => {
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </section>
@@ -206,21 +203,14 @@ const Facilities = () => {
     return (
         <AnimatePresence>
             <Layout>
-
                 <div className="min-h-screen w-full h-full relative flex flex-col justify-center items-center gap-5">
-
                     {themes.map((item, index) => (
                         <div key={index} ref={(e) => (GroupRef.current[index] = e)} data-bgcolor={item.theme.background} className="w-full h-full relative">
                             <ConditionContent contentTitle={item.title} />
                         </div>
-
-
                     ))
-
                     }
-
                 </div>
-
             </Layout>
         </AnimatePresence>
     );
