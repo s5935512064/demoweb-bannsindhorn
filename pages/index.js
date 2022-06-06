@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from "../components/Layout"
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
 
@@ -29,25 +30,32 @@ export default function Home() {
 
 
   const GroupRef = useRef([]);
+  const router = useRouter();
 
   const onScroll = (e) => {
 
-    const content = document.querySelector("#content2");
+    if (GroupRef.current[0] == null) {
+      document.body.style.backgroundColor = "white"
+    }
+    else if (GroupRef.current !== null) {
+      const styles = GroupRef.current.map((item, index) => {
+        const rect = item.getBoundingClientRect();
+        return { item, rect };
+      })
+        .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
 
-    const styles = GroupRef.current.map((item, index) => {
+      document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
+    }
 
-      const rect = item.getBoundingClientRect();
-
-      return { item, rect };
-    })
-      .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
-
-    document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
   }
+
 
   useEffect(() => {
 
     window.addEventListener('scroll', onScroll)
+
+    return () => window.removeEventListener('scroll', onScroll, false)
+
   }, [])
 
   return (
@@ -116,7 +124,7 @@ export default function Home() {
           </section>
 
 
-          <section className="w-full min-h-[65vh] md:min-h-screen h-full relative overflow-hidden  ">
+          <section className="w-full min-h-[45vh] md:min-h-screen h-full relative overflow-hidden  ">
 
 
             <Image
@@ -125,7 +133,15 @@ export default function Home() {
               alt="home-1-"
               layout="fill"
               objectFit="cover"
-              className="grayscale " />
+              className="grayscale hidden sm:block " />
+
+            <Image
+              data-aos="zoom-out-up"
+              src="/assets/home/home-1.jpg"
+              alt="home-1-"
+              layout="fill"
+              objectFit="cover"
+              className="grayscale sm:hidden " />
 
           </section>
 
@@ -201,7 +217,7 @@ export default function Home() {
 
           {themes.map((item, index) => (
             <div key={index} ref={(e) => (GroupRef.current[index] = e)} data-bgcolor={item.theme.background} className="w-full h-full">
-              <section id="content2" className={classNames(
+              <section className={classNames(
                 item.title == "content2" ? "w-full min-h-screen h-full flex flex-col items-center -translate-y-10  " : "hidden opacity-0")}>
 
                 <div className="w-full h-full max-w-7xl  p-4 md:p-10  mb-10">
@@ -244,6 +260,8 @@ export default function Home() {
           ))
 
           }
+
+
 
 
 

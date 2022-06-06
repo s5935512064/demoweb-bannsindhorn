@@ -26,7 +26,7 @@ const Gallery = () => {
     return (
         <AnimatePresence>
             <Layout>
-                <div className="w-full min-h-[85vh] h-full  flex justify-center relative ">
+                <div className="w-full min-h-[85vh] h-full  flex justify-center relative bg-white ">
                     <div className="max-w-7xl w-full h-full mt-28 relative px-4 md:px-10">
                         <h1 className="font-bold  text-3xl md:text-4xl font-serif text-[#82603f] mb-10 text-center">GALLERY</h1>
                         <div className="w-full h-full grid grid-cols-3 grid-rows-4 gap-2">

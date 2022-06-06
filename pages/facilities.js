@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from "../components/Layout"
-import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from 'next/router'
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 
 
 function classNames(...classes) {
@@ -38,27 +40,41 @@ const themes = [
 
 
 const Facilities = () => {
+
     const GroupRef = useRef([]);
+    const router = useRouter()
+    const [show, setShow] = useState(false)
 
     const onScroll = (e) => {
 
-        const content = document.querySelector("#content2");
+        if (GroupRef.current[0] == null) {
+            document.body.style.backgroundColor = "white"
+        }
+        else {
 
-        const styles = GroupRef.current.map((item, index) => {
-            const rect = item.getBoundingClientRect();
+            const styles = GroupRef.current.map((item, index) => {
 
-            return { item, rect };
-        })
-            .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
+                const rect = item.getBoundingClientRect();
 
-        document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
+                return { item, rect };
+
+            })
+                .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
+
+            document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
+        }
+
+
     }
 
 
     useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-    }, [])
 
+        window.addEventListener('scroll', onScroll)
+
+        return () => window.removeEventListener('scroll', onScroll, false)
+
+    }, [])
 
     const ConditionContent = (contentTitle) => {
 
@@ -72,14 +88,18 @@ const Facilities = () => {
                         transition={{ type: "spring", duration: 3, delay: 0 }}
                     >
 
-                        <div className=" w-full h-[65vh] md:h-full bg-[url('/assets/facilities/facilities-banner.jpg')] bg-cover bg-no-repeat bg-center">
+                        <div className="hidden md:block w-full h-[65vh] md:h-full bg-[url('/assets/facilities/facilities-banner.jpg')] bg-cover bg-no-repeat bg-center">
+                            <div className="w-full h-full bg-gradient-to-b from-white opacity-40" />
+                        </div>
+
+                        <div className="visible md:hidden w-full h-[65vh] md:h-full bg-[url('/assets/facilities/facilities-banner-m.jpg')] bg-cover bg-no-repeat bg-center">
                             <div className="w-full h-full bg-gradient-to-b from-white opacity-40" />
                         </div>
                     </motion.div>
 
                     <div data-aos="fade-up"
                         data-aos-delay="300"
-                        className="max-w-md w-full h-[55vh] bg-white/80 backdrop-blur relative flex items-center p-10">
+                        className="max-w-md w-full h-[35vh] md:h-[55vh] bg-white/80 backdrop-blur relative flex items-center p-10">
                         <div
                             className="text-center text-[#7b7c80] grid justify-items-center items-center">
                             <p className="font-serif italic">Residence Lobby</p>
@@ -149,10 +169,20 @@ const Facilities = () => {
                         </div>
                     </div>
 
-                    <div className="w-full h-[500px] md:h-[75vh] relative">
+                    <div className="hidden md:block w-full h-[500px] md:h-[75vh] relative">
                         <Image
                             data-aos="zoom-out-up"
                             src="/assets/facilities/facilities-3.jpg"
+                            alt="facilities-3"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+
+                    </div>
+                    <div className="md:hidden w-full h-[350px] md:h-[75vh] relative">
+                        <Image
+                            data-aos="zoom-out-up"
+                            src="/assets/facilities/facilities-background-mobile-2-1.png"
                             alt="facilities-3"
                             layout="fill"
                             objectFit="cover"
@@ -203,7 +233,7 @@ const Facilities = () => {
     return (
         <AnimatePresence>
             <Layout>
-                <div className="min-h-screen w-full h-full relative flex flex-col justify-center items-center gap-5">
+                <div id="provisioningPages" className="min-h-screen w-full h-full relative flex flex-col justify-center items-center gap-5">
                     {themes.map((item, index) => (
                         <div key={index} ref={(e) => (GroupRef.current[index] = e)} data-bgcolor={item.theme.background} className="w-full h-full relative">
                             <ConditionContent contentTitle={item.title} />

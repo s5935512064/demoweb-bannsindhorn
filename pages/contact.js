@@ -3,14 +3,37 @@ import Image from 'next/image'
 import Layout from "../components/Layout"
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from 'next/router'
 
 const Contact = () => {
     const [openTab, setOpenTab] = useState(1);
+    const router = useRouter();
+
+    // const onScroll = (e) => {
+
+
+    // }
+
+
+    // useEffect(() => {
+
+    //     if (router.pathname === "/contact") {
+
+    //         window.addEventListener('scroll', onScroll, true)
+
+    //         return () => window.removeEventListener('scroll', onScroll, true)
+    //     }
+
+    //     if (router.pathname !== "/contact") {
+
+    //         window.removeEventListener('scroll', onScroll, true)
+    //     }
+    // }, [router.pathname])
 
     return (
         <AnimatePresence>
             <Layout>
-                <div className="w-full min-h-[85vh] h-full  flex justify-center items-center">
+                <div className="w-full min-h-[85vh] h-full  flex justify-center items-center bg-white">
                     <div className="max-w-7xl w-full h-auto  mt-28 md:mt-14 2xl:mt-0 md:border border-[#82603f]">
                         <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-3 p-2 md:p-4 items-center">
                             <div className=" h-full bg-[#dad8d6] flex items-center justify-center p-5">

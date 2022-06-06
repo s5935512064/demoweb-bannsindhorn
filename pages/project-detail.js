@@ -41,20 +41,31 @@ const ProjectDetail = () => {
 
     const onScroll = (e) => {
 
-        const styles = GroupRef.current.map((item, index) => {
-            const rect = item.getBoundingClientRect();
+        if (GroupRef.current[0] == null) {
+            document.body.style.backgroundColor = "white"
+        }
+        else {
 
-            return { item, rect };
-        })
-            .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
+            const styles = GroupRef.current.map((item, index) => {
 
-        document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
-        document.body.style.color = `${styles.item.dataset.txtcolor}`
+                const rect = item.getBoundingClientRect();
+                return { item, rect };
+
+            })
+                .find((item) => item.rect.bottom >= window.innerHeight * 0.5);
+
+            document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
+        }
+
     }
 
 
     useEffect(() => {
+
         window.addEventListener('scroll', onScroll)
+
+        return () => window.removeEventListener('scroll', onScroll, false)
+
     }, [])
 
 
