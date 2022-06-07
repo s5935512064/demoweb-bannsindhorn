@@ -26,7 +26,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        setMenuBar(false);
+        // setMenuBar(false);
     }, [])
 
 

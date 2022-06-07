@@ -30,7 +30,7 @@ const Register = () => {
     };
 
 
-    const recaptcha_callback = (captchaCode) => {
+    const recaptcha_callback = async (captchaCode) => {
         // If the reCAPTCHA code is null or undefined indicating that
         // the reCAPTCHA was expired then return early
         if (!captchaCode) {
@@ -40,8 +40,12 @@ const Register = () => {
 
         // document.getElementById("registerButton").disabled = false;
 
-        recaptchaRef.current.reset();
-        router.push("/register/success")
+        await recaptchaRef.current.reset();
+
+        setTimeout(() => {
+            // console.log("have");
+            router.push("/register/success")
+        }, 2000)
     }
 
 
@@ -96,7 +100,7 @@ const Register = () => {
 
                             <div>
                                 <form onSubmit={handleSubmit}>
-                                    <ReCAPTCHA ref={recaptchaRef} size="invisible" sitekey="6LeNPE4gAAAAAI3blkTz159JWD2mtIlfVydgrZKs" onChange={recaptcha_callback} />
+                                    <ReCAPTCHA ref={recaptchaRef} size="invisible" sitekey="6LdkjU4gAAAAAOvPEMAHDih2-zYmD6ZPNrdA7LS8" onChange={recaptcha_callback} />
 
 
                                     <div className='md:px-4 pt-6 grid grid-cols-1 md:grid-cols-2 gap-1'>
