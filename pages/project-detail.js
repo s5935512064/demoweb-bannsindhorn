@@ -76,7 +76,7 @@ const ProjectDetail = () => {
                 <section className=" w-full h-full relative overflow-hidden flex justify-center items-end md:items-center">
                     <div
 
-                        className="max-w-7xl w-full h-full relative px-4 md:px-10  mb-16">
+                        className="max-w-7xl w-full h-full relative px-6 md:px-10  mb-16">
                         <h1 className="font-bold  text-xl md:text-4xl font-serif text-[#82603f] mb-5 text-center">PROJECT DETAILS</h1>
 
 
@@ -204,7 +204,7 @@ const ProjectDetail = () => {
         else if (contentTitle.contentTitle == "section2") {
             return (
                 <section className="w-full h-full relative overflow-hidden flex justify-center items-end md:items-center">
-                    <div className="max-w-7xl w-full h-full relative px-4 md:px-10  mb-16">
+                    <div className="max-w-7xl w-full h-full relative px-6 md:px-10  mb-16">
                         <h1 className="font-bold  text-xl md:text-4xl font-serif text-[#82603f] text-center mb-5">PROJECT DEVELOPMENT TEAM</h1>
 
 
@@ -277,7 +277,7 @@ const ProjectDetail = () => {
         else if (contentTitle.contentTitle == "section3") {
             return (
                 <section className="w-full h-full relative overflow-hidden flex justify-center items-end md:items-center">
-                    <div className="max-w-7xl w-full h-full  relative px-4 md:px-10">
+                    <div className="max-w-7xl w-full h-full  relative px-6 md:px-10">
                         <h1 className="font-bold  text-xl md:text-4xl font-serif  mb-5 text-[#82603f] text-center">GENERAL SPECIFICATION</h1>
 
                         <div>
@@ -298,7 +298,7 @@ const ProjectDetail = () => {
 
                                     </tr>
                                     <tr >
-                                        <td className="font-medium  pt-10  text-black ">Residence Unit</td>
+                                        <td className="font-medium  pt-5  text-black ">Residence Unit</td>
                                     </tr>
 
                                     <tr>
@@ -472,7 +472,7 @@ const ProjectDetail = () => {
 
                                     {/* common area */}
                                     <tr >
-                                        <td className="font-medium  pt-10  text-black ">Common Areas</td>
+                                        <td className="font-medium  pt-5  text-black ">Common Areas</td>
                                     </tr>
 
                                     <tr>
@@ -533,7 +533,7 @@ const ProjectDetail = () => {
 
                                     {/* Property Services*/}
                                     <tr >
-                                        <td className="font-medium  pt-10  text-black ">Property Services</td>
+                                        <td className="font-medium  pt-5  text-black ">Property Services</td>
                                     </tr>
 
                                     <tr>

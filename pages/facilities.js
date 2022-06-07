@@ -135,7 +135,7 @@ const Facilities = () => {
                                 data-aos="fade-zoom-in"
                                 data-aos-easing="ease-in-back"
                                 data-aos-delay="200"
-                                className="h-full flex justify-center items-center px-4 md:px-10">
+                                className="h-full flex justify-center items-center px-6 md:px-10">
                                 <div className="text-center text-[#7b7c80] grid justify-items-center">
                                     <h1 className="font-bold text-3xl md:text-4xl font-serif text-[#82603f] mb-5 max-w-md w-full">REFLECTING
                                         AN APPRECIATION OF FAMILY BOND</h1>
@@ -201,7 +201,7 @@ const Facilities = () => {
                                 data-aos="fade-zoom-in"
                                 data-aos-easing="ease-in-back"
                                 data-aos-delay="200"
-                                className="h-full flex justify-center items-center px-4 md:px-10">
+                                className="h-full flex justify-center items-center px-6 md:px-10">
                                 <div className="text-center text-[#7b7c80] grid justify-items-center">
                                     <p className="font-serif italic">Fitness Room</p>
                                     <h1 className="font-bold text-3xl md:text-4xl font-serif text-[#82603f] mb-5 max-w-md w-full">REJUVENATION BEYOND IMAGINATION!</h1>

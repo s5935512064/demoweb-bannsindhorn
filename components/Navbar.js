@@ -44,12 +44,15 @@ const Navbar = () => {
                         className="cursor-pointer hover:opacity-70 duration-300" />
                 </div>
             </Link>
-            <div className="fixed top-0 right-0 w-fit h-24 flex justify-end px-4 md:px-10 z-30">
+            <div className="fixed top-0 right-0 w-fit h-24 flex justify-end px-6 md:px-10 z-30">
                 <div className="flex h-full items-center gap-3 ">
-                    <button id="registerBtn" type="button" className={classNames(
-                        menuBar ? "text-white border-white" : "text-[#83603f] border-[#83603f] hover:bg-[#83603f] hover:text-white ", "w-28 text-sm  rounded-full px-4 py-1  border  duration-300")}>Register </button>
+                    <Link href={"/register"}>
+
+                        <button id="registerBtn" type="button" className={classNames(
+                            menuBar ? "text-white border-white" : "text-[#83603f] border-[#83603f] hover:bg-[#83603f] hover:text-white ", "w-28 text-sm  rounded-full px-6 py-1  border  duration-300")}>Register </button>
+                    </Link>
                     <button id="menuBtn" type="button" onClick={ToggleSidebar} className={classNames(
-                        menuBar ? "text-white border-white" : "text-[#83603f] border-[#83603f] border-opacity-0", "w-20 text-sm  rounded-full px-4 py-1  border hover:border-opacity-100  duration-300")}>{menuBar ? "Close" : "Menu"} </button>
+                        menuBar ? "text-white border-white" : "text-[#83603f] border-[#83603f] border-opacity-0", "w-20 text-sm  rounded-full px-6 py-1  border hover:border-opacity-100  duration-300")}>{menuBar ? "Close" : "Menu"} </button>
                 </div>
             </div>
 
@@ -61,7 +64,7 @@ const Navbar = () => {
                         {listMenuItem.map((item, index) => (
                             <Link key={index} href={item.href}>
                                 <button className={
-                                    router.pathname === item.href ? "w-80 px-4 py-2 font-semibold text-3xl text-left" : "w-80 px-4  text-2xl text-left"}>{item.name}</button>
+                                    router.pathname === item.href ? "w-80 px-6 py-2 font-semibold text-3xl text-left" : "w-80 px-6  text-2xl text-left"}>{item.name}</button>
                             </Link>
                         ))
 

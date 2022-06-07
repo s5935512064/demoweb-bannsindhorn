@@ -38,15 +38,15 @@ export default function Cookies() {
 
     return (
         <>
-            <div id="banner" className="z-50 fixed w-full bottom-0 flex flex-col py-6 px-4 lg:px-10 justify-center bg-[#83603f]/80  max-h-[300px] text-white duration-200">
+            <div id="banner" className="z-50 fixed w-full bottom-0 flex flex-col py-6 px-6 lg:px-10 justify-center bg-[#83603f]/80  max-h-[300px] text-white duration-200">
                 <p className="text-lg">เว็บไซต์นี้ใช้คุกกี้</p>
                 <div className="flex flex-col justify-between lg:items-center lg:flex-row gap-3">
                     <p className="font-light text-sm sm:text-base">
                         เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก การตั้งค่าคุกกี้
 
-                        <Link href="/cookiesPolicy">
-                            <span className="underline ml-2">นโยบายการใช้คุ๊กกี้</span>
-                        </Link>
+
+                        <span className="underline ml-2">นโยบายการใช้คุ๊กกี้</span>
+
                     </p>
 
                     <div className="flex gap-2 w-full lg:w-1/3 lg:flex-row flex-row-reverse justify-end ">
@@ -54,7 +54,7 @@ export default function Cookies() {
                         <button
                             type="button"
                             onClick={openModal}
-                            className="px-4 py-2 font-medium text-white underline "
+                            className="px-6 py-2 font-medium text-white underline "
                         >
                             การตั้งค่าคุ๊กกี้
                         </button>
@@ -62,7 +62,7 @@ export default function Cookies() {
                             id="acceptBannerHide"
                             type="button"
                             onClick={closeCookie}
-                            className="px-4 py-2  font-medium text-[#83603f] bg-white rounded-md shadow hover:bg-[#c8a978]/80 duration-150"
+                            className="px-6 py-2  font-medium text-[#83603f] bg-white rounded-md shadow hover:bg-[#c8a978]/80 duration-150"
                         >
                             ยอมรับทั้งหมด
                         </button>
@@ -77,7 +77,7 @@ export default function Cookies() {
                     className="fixed inset-0 z-10 overflow-y-auto"
                     onClose={closeModal}
                 >
-                    <div className="min-h-screen px-4 text-center  ">
+                    <div className="min-h-screen px-6 text-center  ">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -168,7 +168,7 @@ export default function Cookies() {
                                 <div className="mt-4 flex justify-end">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center text-sm md:text-base px-4 py-2  font-medium text-white border border-transparent bg-[#c8a978] rounded-md shadow hover:bg-[#c8a978]/80"
+                                        className="inline-flex justify-center text-sm md:text-base px-6 py-2  font-medium text-white border border-transparent bg-[#c8a978] rounded-md shadow hover:bg-[#c8a978]/80"
                                         onClick={closeModal}
                                     >
                                         ยืนยันตัวเลือกของฉัน

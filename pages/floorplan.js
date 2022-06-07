@@ -305,7 +305,7 @@ const Floorplan = () => {
                             <div className="flex flex-wrap">
                                 <div className="w-full  h-full flex flex-col items-center">
                                     <div className="relative flex flex-col min-w-0 break-words w-full mb-5">
-                                        <div className="md:px-4 md:py-5 flex-auto overflow-hidden">
+                                        <div className="md:px-6 md:py-5 flex-auto overflow-hidden">
                                             <div className="tab-content tab-space max-h-[728px] h-full">
                                                 <div className={openTab === 1 ? "flex flex-col" : "hidden"} id="link1">
                                                     <p className=" font-bold text-3xl md:text-4xl  text-[#82603f] mb-5 text-center font-serif"> 2nd - 7th FLOOR PLAN</p>
@@ -416,7 +416,7 @@ const Floorplan = () => {
                             <div className="flex flex-wrap">
                                 <div className="w-full  h-full flex flex-col items-center">
                                     <div className="relative flex flex-col min-w-0 break-words w-full mb-5">
-                                        <div className="md:px-4 md:py-5 flex-auto overflow-hidden">
+                                        <div className="md:px-6 md:py-5 flex-auto overflow-hidden">
                                             <div className="tab-content tab-space max-h-[728px] h-full">
                                                 <div className={openTab2 === 1 ? "flex flex-col items-center" : "hidden"} id="link1">
                                                     <p className=" font-bold text-3xl md:text-4xl  text-[#82603f] text-center font-serif">ROOM TYPE A</p>

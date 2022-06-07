@@ -73,7 +73,7 @@ const Contact = () => {
                                     <div className="flex flex-wrap">
                                         <div className="w-full">
                                             <div className="relative flex flex-col min-w-0 break-words w-full">
-                                                <div className="md:px-4 md:py-5 flex-auto overflow-hidden">
+                                                <div className="md:px-6 md:py-5 flex-auto overflow-hidden">
                                                     <div className="tab-content tab-space max-h-[450px] h-full">
                                                         <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                                                             <div
