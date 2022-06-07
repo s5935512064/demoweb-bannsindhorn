@@ -25,9 +25,7 @@ const themes = [
   }
 ]
 
-
 export default function Home() {
-
 
   const GroupRef = useRef([]);
   const router = useRouter();
@@ -46,10 +44,7 @@ export default function Home() {
 
       document.body.style.backgroundColor = `${styles.item.dataset.bgcolor}`
     }
-
   }
-
-
   useEffect(() => {
 
     window.addEventListener('scroll', onScroll)
@@ -60,12 +55,25 @@ export default function Home() {
 
   return (
     <AnimatePresence>
-
       <Layout>
+        <Head>
+          <title>Baan Sindhorn</title>
+          <meta name="description" content="Find 7 properties from 2 to 2 bed  units for Sale &amp; Rent available at Baan Sindhorn, Pathum Wan,  Bangkok" />
+          <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร) ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" name="description" />
+          <meta content="บ้านสินธร,คอนโดมิเนียม,ปทุมวัน,กรุงเทพฯ" name="keywords" />
+          <meta content="//https://baansindhorn.com/" property="og:url" />
+          <meta content="Baan Sindhorn (บ้านสินธร) - คอนโดมิเนียม กรุงเทพฯ | Hipflat" property="og:title" />
+
+          <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร)
+ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" property="og:description" />
+          <meta name="apple-mobile-web-app-title" content="Baan Sindhorn" />
+          <meta name="application-name" content="Baan Sindhorn" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
+          <link rel="icon" href="/favicon.svg" />
+        </Head>
 
         <div className="min-h-screen w-full h-full relative flex flex-col justify-center items-center gap-5">
-
-
 
           <section id="hero" className="w-full min-h-screen h-full max-w-7xl  p-4 md:p-10 flex items-center mt-20 md:mt-14 2xl:mt-0 bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full h-full items-center justify-items-center ">
@@ -123,10 +131,7 @@ export default function Home() {
             </div>
           </section>
 
-
           <section className="w-full min-h-[45vh] md:min-h-screen h-full relative overflow-hidden  ">
-
-
             <Image
               data-aos="zoom-out-up"
               src="/assets/home/home-1-1.jpg"
@@ -134,7 +139,6 @@ export default function Home() {
               layout="fill"
               objectFit="cover"
               className="grayscale hidden sm:block " />
-
             <Image
               data-aos="zoom-out-up"
               src="/assets/home/home-1.jpg"
@@ -142,9 +146,7 @@ export default function Home() {
               layout="fill"
               objectFit="cover"
               className="grayscale sm:hidden " />
-
           </section>
-
 
           <section id="content1" className="w-full min-h-[180vh] h-full   flex justify-center relative">
             <div className="w-full h-full max-w-7xl  p-4 md:p-10 flex items-center absolute">
@@ -213,8 +215,6 @@ export default function Home() {
           </section>
 
 
-
-
           {themes.map((item, index) => (
             <div key={index} ref={(e) => (GroupRef.current[index] = e)} data-bgcolor={item.theme.background} className="w-full h-full">
               <section className={classNames(
@@ -252,21 +252,11 @@ export default function Home() {
                     layout="fill"
                     objectFit="cover"
                   />
-
                 </div>
               </section>
-
             </div>
           ))
-
           }
-
-
-
-
-
-
-
         </div >
       </Layout>
     </AnimatePresence>

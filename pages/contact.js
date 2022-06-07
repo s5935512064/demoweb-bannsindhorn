@@ -4,35 +4,57 @@ import Layout from "../components/Layout"
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/router'
+import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 
 const Contact = () => {
     const [openTab, setOpenTab] = useState(1);
     const router = useRouter();
 
-    // const onScroll = (e) => {
+    useEffect(() => {
+        Fancybox.bind('[data-fancybox="map"]', {
+            Thumbs: false,
+            Toolbar: {
+                display: [
+                    { id: "prev", position: "center" },
+                    { id: "counter", position: "center" },
+                    { id: "next", position: "center" },
+                    "zoom",
+                    "slideshow",
+                    "fullscreen",
+                    "download",
+                    "thumbs",
+                    "close",
+                ],
+            },
 
+            Image: {
+                zoom: false,
+                click: false,
+                wheel: "slide",
+            },
+        });
 
-    // }
-
-
-    // useEffect(() => {
-
-    //     if (router.pathname === "/contact") {
-
-    //         window.addEventListener('scroll', onScroll, true)
-
-    //         return () => window.removeEventListener('scroll', onScroll, true)
-    //     }
-
-    //     if (router.pathname !== "/contact") {
-
-    //         window.removeEventListener('scroll', onScroll, true)
-    //     }
-    // }, [router.pathname])
+    }, []);
 
     return (
         <AnimatePresence>
             <Layout>
+                <Head>
+                    <title>Baan Sindhorn</title>
+                    <meta name="description" content="Find 7 properties from 2 to 2 bed  units for Sale &amp; Rent available at Baan Sindhorn, Pathum Wan,  Bangkok" />
+                    <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร) ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" name="description" />
+                    <meta content="บ้านสินธร,คอนโดมิเนียม,ปทุมวัน,กรุงเทพฯ" name="keywords" />
+                    <meta content="//https://baansindhorn.com/" property="og:url" />
+                    <meta content="Baan Sindhorn (บ้านสินธร) - คอนโดมิเนียม กรุงเทพฯ | Hipflat" property="og:title" />
+
+                    <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร)
+ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" property="og:description" />
+                    <meta name="apple-mobile-web-app-title" content="Baan Sindhorn" />
+                    <meta name="application-name" content="Baan Sindhorn" />
+                    <meta name="msapplication-TileColor" content="#da532c" />
+                    <meta name="theme-color" content="#ffffff" />
+                    <link rel="icon" href="/favicon.svg" />
+                </Head>
                 <div className="w-full min-h-[85vh] h-full  flex justify-center items-center bg-white">
                     <div className="max-w-7xl w-full h-auto  mt-28 md:mt-14 2xl:mt-0 md:border border-[#82603f]">
                         <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-3 p-2 md:p-4 items-center">
@@ -42,7 +64,7 @@ const Contact = () => {
                                     <h1 className="font-bold  text-3xl md:text-4xl font-serif text-[#82603f] mb-5">SALES OFFICE</h1>
                                     <hr className="w-28 mb-5" style={{ borderTop: "2px solid #82603f " }} />
                                     <p className="text-sm max-w-xs w-full font-light mb-5">Baan Sindhorn, 89 Soi Langsuan ,Langsuan Road, Pathumwan, Bangkok 10330</p>
-                                    <p className="text-sm max-w-md w-full text-[#82603f]">Tel. 02 650 9595-6</p>
+                                    <a href="tel:+6626509595" className="text-sm max-w-md w-full text-[#82603f]">Tel. 02 650 9595-6</a>
                                 </div>
 
                             </div>
@@ -54,7 +76,12 @@ const Contact = () => {
                                                 <div className="md:px-4 md:py-5 flex-auto overflow-hidden">
                                                     <div className="tab-content tab-space max-h-[450px] h-full">
                                                         <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                                                            <div className="w-full h-[450px]">
+                                                            <div
+                                                                data-caption=""
+                                                                href="/assets/contact/map1.png"
+                                                                data-fancybox="map"
+
+                                                                className="w-full h-[450px]">
                                                                 <Image
                                                                     src="/assets/contact/map1.png"
                                                                     alt="map"
@@ -73,11 +100,13 @@ const Contact = () => {
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <ul
-                                                className="flex mb-0 list-none flex-wrap flex-row"
+                                                className="flex mb-0 list-none flex-wrap flex-row w-fulljustify-center"
                                                 role="tablist"
+                                                aria-owns="tab-1 tab-2"
                                             >
-                                                <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                                <li id="tab-1" role="tab" className="-mb-px mr-2 last:mr-0 flex-auto text-center">
                                                     <a
                                                         className={
                                                             "text-sm px-5 py-3  block leading-normal " +
@@ -91,12 +120,12 @@ const Contact = () => {
                                                         }}
                                                         data-toggle="tab"
                                                         href="#link1"
-                                                        role="tablist"
+
                                                     >
                                                         Photo Map
                                                     </a>
                                                 </li>
-                                                <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                                <li id="tab-2" role="tab" className="-mb-px mr-2 last:mr-0 flex-auto text-center">
                                                     <a
                                                         className={
                                                             "text-sm px-5 py-3  block leading-normal " +
@@ -110,12 +139,11 @@ const Contact = () => {
                                                         }}
                                                         data-toggle="tab"
                                                         href="#link2"
-                                                        role="tablist"
+
                                                     >
                                                         Google Map
                                                     </a>
                                                 </li>
-
                                             </ul>
                                         </div>
                                     </div>

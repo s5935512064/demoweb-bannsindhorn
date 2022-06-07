@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fancyapps/ui": "^4.0.27",
+    "@headlessui/react": "^1.6.4",
     "aos": "^2.3.4",
     "framer-motion": "^6.3.5",
     "next": "12.1.6",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^9.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },

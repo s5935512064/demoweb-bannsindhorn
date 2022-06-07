@@ -684,6 +684,22 @@ const ProjectDetail = () => {
     return (
         <AnimatePresence>
             <Layout>
+                <Head>
+                    <title>Baan Sindhorn</title>
+                    <meta name="description" content="Find 7 properties from 2 to 2 bed  units for Sale &amp; Rent available at Baan Sindhorn, Pathum Wan,  Bangkok" />
+                    <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร) ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" name="description" />
+                    <meta content="บ้านสินธร,คอนโดมิเนียม,ปทุมวัน,กรุงเทพฯ" name="keywords" />
+                    <meta content="//https://baansindhorn.com/" property="og:url" />
+                    <meta content="Baan Sindhorn (บ้านสินธร) - คอนโดมิเนียม กรุงเทพฯ | Hipflat" property="og:title" />
+
+                    <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร)
+ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" property="og:description" />
+                    <meta name="apple-mobile-web-app-title" content="Baan Sindhorn" />
+                    <meta name="application-name" content="Baan Sindhorn" />
+                    <meta name="msapplication-TileColor" content="#da532c" />
+                    <meta name="theme-color" content="#ffffff" />
+                    <link rel="icon" href="/favicon.svg" />
+                </Head>
                 <div className="min-h-screen w-full h-full relative flex flex-col justify-center items-center gap-5 pt-28">
 
                     {themes.map((item, index) => (
