@@ -7,10 +7,11 @@ function classNames(...classes) {
 }
 
 export default function Cookies() {
-    let [bannerOpen, setBannerOpen] = useState(true)
-    let [isOpen, setIsOpen] = useState(false)
-    const [analysis, setAnalysis] = useState(false)
-    const [marketing, setMarketing] = useState(false)
+    let [bannerOpen, setBannerOpen] = useState(false);
+    let [isOpen, setIsOpen] = useState(false);
+    const [analysis, setAnalysis] = useState(false);
+    const [marketing, setMarketing] = useState(false);
+    const [cookies, setCookies] = useState([]);
 
     function closeModal() {
         setIsOpen(false)
@@ -21,7 +22,7 @@ export default function Cookies() {
     }
 
     function closeCookie() {
-
+        setCookie('bannsindhorn', 'testcookie', 7);
         setBannerOpen(false)
     }
 
@@ -29,16 +30,52 @@ export default function Cookies() {
         const btn = document.querySelector("#acceptBannerHide");
         const banner = document.querySelector("#banner");
 
-
         btn.addEventListener("click", () => {
-
             banner.classList.add("translate-y-full");
         });
     });
 
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        setCookies(document.cookie)
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+    useEffect(() => {
+        // console.log(cookies);
+        // eraseCookie('bannsindhorn')
+        var x = getCookie('bannsindhorn')
+        if (!x) {
+            setBannerOpen(true)
+        }
+
+    })
+
     return (
         <>
-            <div id="banner" className="z-50 fixed w-full bottom-0 flex flex-col py-6 px-6 lg:px-10 justify-center bg-[#83603f]/80  max-h-[300px] text-white duration-200">
+            <div id="banner" className={classNames(bannerOpen ? "flex" : "hidden", "z-50 fixed w-full bottom-0 flex flex-col py-6 px-6 lg:px-10 justify-center bg-[#83603f]/80  max-h-[300px] text-white duration-200")}
+
+            >
                 <p className="text-lg">เว็บไซต์นี้ใช้คุกกี้</p>
                 <div className="flex flex-col justify-between lg:items-center lg:flex-row gap-3">
                     <p className="font-light text-sm sm:text-base">

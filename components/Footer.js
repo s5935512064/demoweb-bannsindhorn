@@ -115,7 +115,7 @@ const Footer = () => {
 
 
 
-                            <Link href={"https://www.instagram.com/sindhornvillage/"} >
+                            <Link href={"https://lin.ee/URizy9M"} >
 
                                 <a target="_blank" rel="noopener noreferrer">
                                     <svg

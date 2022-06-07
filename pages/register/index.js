@@ -5,6 +5,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRouter } from 'next/router'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -14,6 +16,53 @@ function classNames(...classes) {
 
 const Register = () => {
 
+    const router = useRouter();
+    const [email, setEmail] = useState("");
+    const recaptchaRef = React.createRef();
+
+    const handleSubmit = (event) => {
+
+        event.preventDefault();
+        // Execute the reCAPTCHA when the form is submitted
+        recaptchaRef.current.execute();
+        // router.push("/register/success");
+    };
+
+    const onReCAPTCHAChange = async (captchaCode) => {
+        if (!captchaCode) {
+            return;
+        }
+        try {
+            const response = await fetch("/api/register", {
+                method: "POST",
+                body: JSON.stringify({ email, captcha: captchaCode }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                // If the response is ok than show the success alert
+                alert("Email registered successfully");
+            } else {
+                // Else throw an error with the message returned
+                // from the API
+                const error = await response.json();
+                throw new Error(error.message)
+            }
+        } catch (error) {
+            alert(error?.message || "Something went wrong");
+        } finally {
+            // Reset the reCAPTCHA when the request has failed or succeeeded
+            // so that it can be executed again if user submits another email.
+            recaptchaRef.current.reset();
+            setEmail("");
+        }
+    }
+
+    useEffect(() => {
+        // onReCAPTCHAChange();
+        // console.log("check", recaptchaRef);
+    }, [])
 
 
     return (
@@ -54,7 +103,15 @@ const Register = () => {
                             </div>
 
                             <div>
-                                <form action="">
+                                <form onSubmit={handleSubmit}>
+
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        size="invisible"
+                                        sitekey="6LczBE4gAAAAAIrzTyCub67ZLxQxbR_xT2pzMW5M"
+                                        onChange={onReCAPTCHAChange}
+                                    />
+
                                     <div className='md:px-4 pt-6 grid grid-cols-1 md:grid-cols-2 gap-1'>
                                         <div className="mb-2">
                                             <label className="block text-[#B6A694]  mb-2" htmlFor="name">
@@ -73,7 +130,7 @@ const Register = () => {
                                             <label className="block text-[#B6A694]  mb-2" htmlFor="email">
                                                 Email
                                             </label>
-                                            <input className="font-light text-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required />
+                                            <input onChange={(e) => setEmail(e.target.value)} className="font-light text-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" required />
                                         </div>
                                         <div className="mb-2">
                                             <label className="block text-[#B6A694] mb-2" htmlFor="phone">
@@ -130,10 +187,10 @@ const Register = () => {
                                     </div>
 
                                     <div className="md:px-4 pt-6">
-                                        <Link href={"register/success"}>
 
-                                            <button type="submit" className="w-fit px-6 py-2 bg-[#82603f] text-white hover:bg-white border border-[#82603f] hover:text-[#82603f] duration-300">REGISTER</button>
-                                        </Link>
+
+                                        <button type="submit" className="w-fit px-6 py-2 bg-[#82603f] text-white hover:bg-white border border-[#82603f] hover:text-[#82603f] duration-300">REGISTER</button>
+
 
                                     </div>
 
