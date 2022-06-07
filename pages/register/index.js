@@ -7,6 +7,7 @@ import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -18,50 +19,39 @@ const Register = () => {
 
     const router = useRouter();
     const [email, setEmail] = useState("");
-    const recaptchaRef = React.createRef();
+    const recaptchaRef = useRef();
 
     const handleSubmit = (event) => {
-
         event.preventDefault();
         // Execute the reCAPTCHA when the form is submitted
         recaptchaRef.current.execute();
-        // router.push("/register/success");
+
+        // router.push("/register/success")
     };
 
-    const onReCAPTCHAChange = async (captchaCode) => {
+
+    const recaptcha_callback = (captchaCode) => {
+        // If the reCAPTCHA code is null or undefined indicating that
+        // the reCAPTCHA was expired then return early
         if (!captchaCode) {
+
             return;
         }
-        try {
-            const response = await fetch("/api/register", {
-                method: "POST",
-                body: JSON.stringify({ email, captcha: captchaCode }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (response.ok) {
-                // If the response is ok than show the success alert
-                alert("Email registered successfully");
-            } else {
-                // Else throw an error with the message returned
-                // from the API
-                const error = await response.json();
-                throw new Error(error.message)
-            }
-        } catch (error) {
-            alert(error?.message || "Something went wrong");
-        } finally {
-            // Reset the reCAPTCHA when the request has failed or succeeeded
-            // so that it can be executed again if user submits another email.
-            recaptchaRef.current.reset();
-            setEmail("");
-        }
+
+        // document.getElementById("registerButton").disabled = false;
+
+        recaptchaRef.current.reset();
+        router.push("/register/success")
     }
 
+
     useEffect(() => {
-        // onReCAPTCHAChange();
-        // console.log("check", recaptchaRef);
+
+        // if (!(await validateCaptcha(req.body['g-recaptcha-response']))) {
+        //     return res.redirect(`/captcha`)
+        // }
+        // delete req.body['g-recaptcha-response']
+
     }, [])
 
 
@@ -86,6 +76,8 @@ const Register = () => {
                     <link rel="icon" href="/favicon.svg" />
                 </Head>
 
+                <Script src="https://www.google.com/recaptcha/api.js" />
+
                 <div className="w-full min-h-[85vh]  h-full  flex justify-center relative bg-white">
                     <div className="max-w-7xl w-full h-full mt-28 relative px-6 md:px-10">
                         <h1 className="font-bold  text-3xl md:text-4xl font-serif text-[#82603f] text-center">REGISTER</h1>
@@ -104,13 +96,8 @@ const Register = () => {
 
                             <div>
                                 <form onSubmit={handleSubmit}>
+                                    <ReCAPTCHA ref={recaptchaRef} size="invisible" sitekey="6LeNPE4gAAAAAI3blkTz159JWD2mtIlfVydgrZKs" onChange={recaptcha_callback} />
 
-                                    <ReCAPTCHA
-                                        ref={recaptchaRef}
-                                        size="invisible"
-                                        sitekey="6LeNPE4gAAAAAI3blkTz159JWD2mtIlfVydgrZKs"
-                                        onChange={onReCAPTCHAChange}
-                                    />
 
                                     <div className='md:px-4 pt-6 grid grid-cols-1 md:grid-cols-2 gap-1'>
                                         <div className="mb-2">
@@ -186,10 +173,10 @@ const Register = () => {
 
                                     </div>
 
-                                    <div className="md:px-4 pt-6">
+                                    <div className="md:px-4 ">
 
 
-                                        <button type="submit" className="w-fit px-6 py-2 bg-[#82603f] text-white hover:bg-white border border-[#82603f] hover:text-[#82603f] duration-300">REGISTER</button>
+                                        <input id="registerButton" value="REGISTER" type="submit" className="w-fit px-6 py-2 bg-[#82603f] text-white hover:bg-white border border-[#82603f] hover:text-[#82603f] duration-300  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none my-2 cursor-pointer" />
 
 
                                     </div>
