@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         try {
             // Ping the google recaptcha verify API to verify the captcha code you received
             const response = await fetch(
-                `https://www.google.com/recaptcha/api/siteverify?secret=6LczBE4gAAAAAKIeiXBtbrmypiX1i3xr068cIdma&response=${captcha}`,
+                `https://www.google.com/recaptcha/api/siteverify?secret=6Lc2M04gAAAAAN_vOcoDa8N9PrPAENGIlMH-ebuY&response=${captcha}`,
                 {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",

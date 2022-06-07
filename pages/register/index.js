@@ -108,7 +108,7 @@ const Register = () => {
                                     <ReCAPTCHA
                                         ref={recaptchaRef}
                                         size="invisible"
-                                        sitekey="6LczBE4gAAAAAIrzTyCub67ZLxQxbR_xT2pzMW5M"
+                                        sitekey="6Lc2M04gAAAAAG9jFCByB8_PYrLjOiTtELhwx1U5"
                                         onChange={onReCAPTCHAChange}
                                     />
 
