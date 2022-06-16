@@ -77,7 +77,7 @@ export default function Home() {
 
           <section id="hero" className="w-full min-h-screen h-full max-w-7xl  p-4 md:p-10 flex items-center mt-20 md:mt-14 2xl:mt-0 bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full h-full items-center justify-items-center ">
-              <div className="w-full h-[65vh] md:h-[768px]  overflow-hidden relative flex p-2 md:p-4 border border-[#83603f]">
+              <div className="w-full h-[65vh] md:h-[70vh]  overflow-hidden relative flex p-2 md:p-4 border border-[#83603f]">
 
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
