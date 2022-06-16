@@ -1,5 +1,5 @@
 const withPlugins = require("next-compose-plugins");
-const withTM = require("next-transpile-modules")(["@fancyapps/ui"]);
+const withTM = require("next-transpile-modules")(["@fancyapps/ui", "vanilla-cookieconsent"]);
 
 
 /** @type {import('next').NextConfig} */

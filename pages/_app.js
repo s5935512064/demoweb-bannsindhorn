@@ -1,8 +1,9 @@
 import '../styles/globals.css'
+import "../styles/cookieconsent.css";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import Cookies from "../components/Cookies";
+import CookieConsent from "../components/CookieConsent";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fancyapps/ui/dist/fancybox.css";
@@ -12,8 +13,6 @@ function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
 
   const router = useRouter();
-
-
 
 
   useEffect(() => {
@@ -44,7 +43,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </AnimatePresence>
-      <Cookies />
+      <CookieConsent />
     </>
 
   );
