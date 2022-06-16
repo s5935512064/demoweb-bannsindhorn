@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Cookies from "./Cookies";
 import { motion, AnimatePresence } from "framer-motion";
 
 
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
 
             </motion.main>
             <Footer />
+            <Cookies />
         </>
     );
 };

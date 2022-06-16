@@ -152,7 +152,7 @@ const Footer = () => {
                 <div className="flex justify-between w-full h-1/2 items-center border-[#82603f] border-t pt-2 text-[#82603f]">
                     <p className="lowercase text-xs font-light w-2/3 ">COPYRIGHT © 2022 , SIAM SINDHORN CO.,LTD ALL RIGHTS RESERVED.</p>
                     <Link href={"/cookiepolicy"}>
-                        <p className="text-xs font-light underline">Cookie Policy</p>
+                        <p className="text-xs font-light underline cursor-pointer">Privacy Policy</p>
                     </Link>
 
                 </div>

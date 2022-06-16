@@ -25,7 +25,7 @@ const Cookiepolicy = () => {
                     <link rel="icon" href="/favicon.svg" />
                 </Head>
                 <div className="min-h-screen w-full h-full relative flex justify-center pt-28">
-                    <div className="max-w-5xl w-full h-full relative px-6 md:px-10  mb-16 ">
+                    <div className="max-w-5xl w-full h-full relative px-6 md:px-10  mb-16 text-[#7b7c80] ">
                         <h1 className="font-bold text-xl md:text-4xl font-serif text-[#82603f] mb-5 text-center">นโยบายความเป็นส่วนตัว <br></br>ของกลุ่มบริษัท สยามสินธร จำกัดและบริษัทในเครือ</h1>
 
 

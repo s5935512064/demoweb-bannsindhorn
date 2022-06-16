@@ -46,8 +46,8 @@ const CookieConsent = () => {
                 languages: {
                     'en': {
                         consent_modal: {
-                            title: 'We use cookies!',
-                            description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                            title: 'We use cookies',
+                            description: 'This website uses cookies to enhance your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from.  You can manage your preferences by clicking <button type="button" data-cc="c-settings" class="cc-link">Change Preferences</button>',
                             primary_btn: {
                                 text: 'Accept all',
                                 role: 'accept_all'              // 'accept_selected' or 'accept_all'
@@ -58,7 +58,7 @@ const CookieConsent = () => {
                             }
                         },
                         settings_modal: {
-                            title: 'Cookie preferences',
+                            title: 'Privacy Preference',
                             save_settings_btn: 'Save settings',
                             accept_all_btn: 'Accept all',
                             reject_all_btn: 'Reject all',
@@ -74,8 +74,8 @@ const CookieConsent = () => {
                                     title: 'Cookie usage 📢',
                                     description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="/cookiepolicy" class="cc-link">privacy policy</a>.'
                                 }, {
-                                    title: 'Strictly necessary cookies',
-                                    description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                                    title: 'Necessary',
+                                    description: 'Necessary cookies are required to help a website usable by enabling core functions and access to secure areas of the website. The website cannot be function properly without these cookies and they are enabled by default and cannot be disabled.',
                                     toggle: {
                                         value: 'necessary',
                                         enabled: true,
@@ -83,7 +83,7 @@ const CookieConsent = () => {
                                     }
                                 }, {
                                     title: 'Performance and Analytics cookies',
-                                    description: 'These cookies allow the website to remember the choices you have made in the past',
+                                    description: 'Analytics cookies help website to understand how visitors interact through the website. These cookies help to improve user experiences by collecting and reporting information. ',
                                     toggle: {
                                         value: 'analytics',     // your cookie category
                                         enabled: false,
@@ -105,8 +105,8 @@ const CookieConsent = () => {
                                         }
                                     ]
                                 }, {
-                                    title: 'Advertisement and Targeting cookies',
-                                    description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                                    title: 'Marketing',
+                                    description: 'Marketing cookies are used to track visitors across websites to display relevant advertisements for the individual user and thereby more valuable for publishers and third party advertisers.',
                                     toggle: {
                                         value: 'targeting',
                                         enabled: false,
