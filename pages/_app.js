@@ -171,8 +171,6 @@ function MyApp({ Component, pageProps }) {
           }
         },
 
-        page_scripts: true
-
       });
 
     });
