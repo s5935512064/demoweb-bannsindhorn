@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import "@fancyapps/ui/dist/fancybox.css";
 import * as ga from '../lib/ga'
 
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }) {
 
@@ -45,9 +46,9 @@ function MyApp({ Component, pageProps }) {
       cc.run({
         current_lang: 'en',
         autoclear_cookies: true,                   // default: false
-        page_scripts: true,                        // default: false
+        page_scripts: true,                     // default: false
         cookie_expiration: 365,
-        // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+        // mode: 'opt-out',                    // default: 'opt-in'; value: 'opt-in' or 'opt-out'
         // delay: 0,                               // default: 0
         // auto_language: '',                      // default: null; could also be 'browser' or 'document'
         // autorun: true,                          // default: true
@@ -69,7 +70,13 @@ function MyApp({ Component, pageProps }) {
         },
 
         onAccept: function (cookie, user_preferences) {
-          // callback triggered on the first accept/reject action, and after each page load
+          // if (cc.allowedCategory('analytics')) {
+
+          //   cc.loadScript('analytics', function () {
+
+          //     console.log('analytics enabled!')
+          //   });
+          // }
 
         },
 
@@ -193,13 +200,43 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
 
+
+
   return (
     <>
+
+
+      {/* <Script
+        strategy="afterInteractive"
+        data-cookiecategory="analytics"
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script
+        data-cookiecategory="analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      /> */}
+
+
+
       <AnimatePresence
         exitBeforeEnter
         initial={false}
       >
+
         <Component {...pageProps} />
+
       </AnimatePresence>
       <Cookies />
     </>
