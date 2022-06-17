@@ -1,12 +1,14 @@
 import Image from "next/image";
-
+import React, { useState, useEffect, useRef } from "react";
 const Cookies = () => {
+
     return (
         <>
             <div className="fixed bottom-3 left-3">
                 <div className="group relative flex h-full items-center">
                     <button
-                        type="button" data-cc="c-settings"
+                        id="show-preferencesModal"
+                        data-cc="c-settings"
                         className="w-12 h-12 bg-white rounded-full drop-shadow hover:scale-125 duration-300">
                         <Image
                             src="/assets/cookie.png"

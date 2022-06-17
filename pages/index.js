@@ -110,6 +110,7 @@ export default function Home() {
 
 
                 <div className="text-center text-[#7b7c80] grid justify-items-center">
+
                   <p className="font-serif italic">Where Your</p>
                   <h1 className="font-bold text-4xl font-serif text-[#82603f] mb-5">HEART <br />BELONGS</h1>
 

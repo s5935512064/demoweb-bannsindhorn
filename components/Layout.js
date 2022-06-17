@@ -26,9 +26,9 @@ const Layout = ({ children }) => {
 
                 {children}
 
+
             </motion.main>
             <Footer />
-            <Cookies />
         </>
     );
 };
