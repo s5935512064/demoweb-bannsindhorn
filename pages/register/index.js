@@ -100,7 +100,7 @@ const Register = () => {
 
                             <div>
                                 <form onSubmit={handleSubmit}>
-                                    <ReCAPTCHA ref={recaptchaRef} size="invisible" sitekey="6LdkjU4gAAAAAOvPEMAHDih2-zYmD6ZPNrdA7LS8" onChange={recaptcha_callback} />
+                                    <ReCAPTCHA ref={recaptchaRef} size="invisible" sitekey="6LfKKHkgAAAAAJvwXdUQhMeN4XlyNQjCLB3coUNU" onChange={recaptcha_callback} />
 
 
                                     <div className='md:px-4 pt-6 grid grid-cols-1 md:grid-cols-2 gap-1'>
