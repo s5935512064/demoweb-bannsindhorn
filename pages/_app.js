@@ -224,7 +224,7 @@ function MyApp({ Component, pageProps }) {
     <>
 
 
-      {/* <Script
+      <Script
         strategy="afterInteractive"
         data-cookiecategory="analytics"
         async
@@ -244,7 +244,7 @@ function MyApp({ Component, pageProps }) {
             });
           `,
         }}
-      /> */}
+      />
 
 
 
