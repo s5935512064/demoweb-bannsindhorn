@@ -24,7 +24,7 @@ const Success = () => {
                     <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร) ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" name="description" />
                     <meta content="บ้านสินธร,คอนโดมิเนียม,ปทุมวัน,กรุงเทพฯ" name="keywords" />
                     <meta content="//https://baansindhorn.com/" property="og:url" />
-                    <meta content="Baan Sindhorn (บ้านสินธร) - คอนโดมิเนียม กรุงเทพฯ | Hipflat" property="og:title" />
+                    <meta content="Baan Sindhorn (บ้านสินธร)" property="og:title" />
 
                     <meta content="22 ยูนิตสำหรับขาย และ 10 ยูนิตสำหรับเช่าที่ Baan Sindhorn (บ้านสินธร)
 ราคาตลาดเฉลี่ย คือ 0 บาท/ตรม. แนวโน้มราคา: คงที่" property="og:description" />
